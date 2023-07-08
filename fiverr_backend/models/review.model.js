@@ -3,40 +3,22 @@ const { Schema } = mongoose;
 
 const reviewSchema = new Schema(
   {
-    username: {
-      type: string,
-      required: true,
-      unique: true,
+    gigId: {
+      type: String,
+      default: true,
     },
-    email: {
-      type: string,
-      required: true,
-      unique: true,
+    userId: {
+      type: String,
+      default: true,
     },
-    password: {
-      type: string,
-      required: true,
-    },
-    image: {
-      type: string,
-      required: false,
-    },
-
-    country: {
-      type: string,
-      required: true,
-    },
-    phone: {
-      type: string,
-      required: true,
+    star: {
+      type: Number,
+      default: true,
+      enum: [1, 2, 3, 4, 5],
     },
     desc: {
-      type: string,
-      required: false,
-    },
-    isSeller: {
-      type: boolean,
-      default: false,
+      type: String,
+      default: true,
     },
   },
   { timestamps: true }

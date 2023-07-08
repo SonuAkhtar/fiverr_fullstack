@@ -3,40 +3,37 @@ const { Schema } = mongoose;
 
 const orderSchema = new Schema(
   {
-    username: {
-      type: string,
-      required: true,
-      unique: true,
-    },
-    email: {
-      type: string,
-      required: true,
-      unique: true,
-    },
-    password: {
-      type: string,
+    gigId: {
+      type: String,
       required: true,
     },
     image: {
-      type: string,
+      type: String,
       required: false,
     },
-
-    country: {
-      type: string,
+    title: {
+      type: String,
       required: true,
     },
-    phone: {
-      type: string,
+    price: {
+      type: Number,
       required: true,
     },
-    desc: {
-      type: string,
-      required: false,
+    sellerId: {
+      type: String,
+      required: true,
     },
-    isSeller: {
-      type: boolean,
-      default: false,
+    buyerId: {
+      type: String,
+      required: true,
+    },
+    isCompleted: {
+      type: Boolean,
+      default: true,
+    },
+    payment_intent: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }

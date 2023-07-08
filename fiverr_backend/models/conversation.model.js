@@ -3,40 +3,30 @@ const { Schema } = mongoose;
 
 const conversationSchema = new Schema(
   {
-    username: {
-      type: string,
+    id: {
+      type: String,
       required: true,
       unique: true,
     },
-    email: {
-      type: string,
-      required: true,
-      unique: true,
-    },
-    password: {
-      type: string,
+    sellerId: {
+      type: String,
       required: true,
     },
-    image: {
-      type: string,
-      required: false,
-    },
-
-    country: {
-      type: string,
+    buyerId: {
+      type: String,
       required: true,
     },
-    phone: {
-      type: string,
+    readBySeller: {
+      type: Boolean,
       required: true,
     },
-    desc: {
-      type: string,
-      required: false,
+    readByBuyer: {
+      type: Boolean,
+      required: true,
     },
-    isSeller: {
-      type: boolean,
-      default: false,
+    lastMessage: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }

@@ -4,38 +4,37 @@ const { Schema } = mongoose;
 const userSchema = new Schema(
   {
     username: {
-      type: string,
+      type: String,
       required: true,
       unique: true,
     },
     email: {
-      type: string,
+      type: String,
       required: true,
       unique: true,
     },
     password: {
-      type: string,
+      type: String,
       required: true,
     },
     image: {
-      type: string,
+      type: String,
       required: false,
     },
-
     country: {
-      type: string,
+      type: String,
       required: true,
     },
     phone: {
-      type: string,
-      required: true,
+      type: String,
+      required: false,
     },
     desc: {
-      type: string,
+      type: String,
       required: false,
     },
     isSeller: {
-      type: boolean,
+      type: Boolean,
       default: false,
     },
   },

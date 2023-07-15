@@ -21,13 +21,9 @@ export const register = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
   try {
-    const user = await User.findOne({
-      username: req.body.username,
-    });
-    const err = new Error();
-    err.status = 404;
-    err.message = "User not found";
-    if (!user) return next(createError(404, "User not found"));
+    const user = await User.findOne({ username: req.body.username });
+
+    if (!user) return next(createError(404, "User not found!"));
 
     const isCorrect = bcrypt.compareSync(req.body.password, user.password);
     if (!isCorrect) return next(createError(400, "Wrong username or password"));
@@ -48,7 +44,7 @@ export const login = async (req, res, next) => {
       .status(200)
       .send(info);
   } catch (error) {
-    next(createError(500, "Something went wrong!"));
+    next(error);
   }
 };
 
@@ -56,5 +52,5 @@ export const logout = async (req, res) => {
   res
     .clearCookie("accessToken", { sameSite: "none", secure: true })
     .status(200)
-    .send("User has been logged out");
+    .send("User has been logged out.");
 };

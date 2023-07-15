@@ -37,7 +37,7 @@ app.use("/api/conversations", conversationRoute);
 app.use("/api/gigs", gigRoute);
 app.use("/api/messages", messageRoute);
 app.use("/api/orders", orderRoute);
-app.use("/api/reivews", reviewRoute);
+app.use("/api/reviews", reviewRoute);
 app.use("/api/users", userRoute);
 
 app.use((err, req, res, next) => {

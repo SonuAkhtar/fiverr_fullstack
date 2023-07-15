@@ -19,7 +19,7 @@ const gigSchema = new Schema(
       type: Number,
       default: 0,
     },
-    startNumber: {
+    starNumber: {
       type: Number,
       default: 0,
     },
@@ -39,7 +39,6 @@ const gigSchema = new Schema(
       type: [String],
       required: false,
     },
-
     shortTitle: {
       type: String,
       required: true,

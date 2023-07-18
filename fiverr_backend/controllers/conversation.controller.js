@@ -20,7 +20,7 @@ export const createConversation = async (req, res, next) => {
 export const getConversations = async (req, res, next) => {
   try {
     const conversations = await Conversation.find(
-      req.isSeller ? { sellerId: req.userid } : { buyerId: req.userId }
+      req.isSeller ? { sellerId: req.userId } : { buyerId: req.userId }
     );
     res.status(200).send(conversations);
   } catch (error) {
@@ -40,9 +40,7 @@ export const getSingleConversation = async (req, res, next) => {
 export const updateConversation = async (req, res, next) => {
   try {
     const updatedConversation = await Conversation.findOneAndUpdate(
-      {
-        id: req.params.id,
-      },
+      { id: req.params.id },
       {
         $set: {
           readBySeller: true,
@@ -51,6 +49,8 @@ export const updateConversation = async (req, res, next) => {
       },
       { new: true }
     );
+
+    res.status(200).send(updatedConversation);
   } catch (error) {
     next(error);
   }
